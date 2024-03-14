@@ -4,22 +4,11 @@ from cryptography.hazmat.primitives import padding
 import base64
 
 def triple_des_decrypt(ciphertext, key):
-    # Ensure the key is 24 bytes long (3 * 8 bytes)
     key = key[:24].ljust(24, b'\0')
-
-    # Initialize the 3DES cipher with CBC mode
     cipher = Cipher(algorithms.TripleDES(key), modes.CBC(b'\0' * 8), backend=default_backend())
-
-    # Create an unpadder for PKCS7 padding
     unpadder = padding.PKCS7(algorithms.TripleDES.block_size).unpadder()
-
-    # Decode the base64-encoded ciphertext
     ciphertext_bytes = base64.b64decode(ciphertext)
-
-    # Create a decryptor object
     decryptor = cipher.decryptor()
-
-    # Decrypt the ciphertext
     decrypted_data = decryptor.update(ciphertext_bytes) + decryptor.finalize()
 
     # Remove padding
