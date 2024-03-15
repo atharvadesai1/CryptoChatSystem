@@ -20,8 +20,8 @@ def triple_des_decrypt(ciphertext, key):
     return plaintext_str
 
 # Example usage
-ciphertext = "miaILw9T9R+rPDTNMei/Pg=="
-key = b"mysecretkeymysecretkeymysecretkey"  # 24 bytes key
+ciphertext = "AodmHI/nKpgp1svTt5b0cg=="
+key = b"random"  # 24 bytes key
 
 plaintext = triple_des_decrypt(ciphertext, key)
 print("Ciphertext:", ciphertext)

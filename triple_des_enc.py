@@ -28,7 +28,7 @@ def triple_des_encrypt(plaintext, key):
     return encoded_ciphertext
 
 # Example usage   
-plaintext = "Hello, 3DES!"
+plaintext = "Welcome to my world"
 key = b"mysecretkeymysecretkeymysecretkey"  # 24 bytes key
 
 ciphertext = triple_des_encrypt(plaintext, key)
